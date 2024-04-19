@@ -118,17 +118,36 @@ function compararAtaques(){
         combate();
     } else if (jugador == 0 && enemigo == 2) {
         alert ("Acertaste el ataque");
-        puntos(0,1);
+        alert ("Ganaste");
+        continuar();
     } else if (jugador == 1 && enemigo == 0) {
         alert ("Acertaste el ataque");
-        puntos(0,1);
+        alert ("Ganaste");
+        continuar();
     } else if (jugador == 2 && enemigo == 1) {
         alert ("Acertaste el ataque");
-        puntos(0,1);
+        alert ("Ganaste");
+        continuar();
     } else {
         alert ("Recibiste el ataque");
-        puntosEnemigo(0,1);
+        alert ("Has Muerto");
+        continuar();
     } 
+}
+
+function continuar(){
+    jugador = prompt("Ingresa 1 para continuar o 2 para salir.")
+    if (jugador == 1){
+        nivelUno();
+        combate();
+    }
+    else if (jugador == 2){
+        alert("Fin del juego");
+        miauSaga();
+    } else {
+        alert("Ingreso invalido, vuelve a ingresar");
+        continuar();
+    }
 }
 
 //Ejecución
