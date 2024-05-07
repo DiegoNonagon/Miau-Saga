@@ -1,9 +1,15 @@
 const personajes = ["Michi Guts",
-"Michi Sekiro", 
-"Michi Gandalf", 
-"Michi Garras Salvajes", 
-"Michi Aliento Venenoso", 
-"Michi Mago Oscuro"]
+    "Michi Sekiro", 
+    "Michi Gandalf", 
+    "Michi Garras Salvajes", 
+    "Michi Aliento Venenoso", 
+    "Michi Mago Oscuro"]
+
+const ataques = [
+    "Espadaso en Salto",
+    "Bolido Oscuro",
+    "Estocada con Parry"
+]
 
 let ataqueJugador
 let ataqueEnemigo
@@ -29,16 +35,16 @@ function iniciarJuego () {
     comenzarJuego.addEventListener("click", startGame)
 
     let name = document.getElementById("nombre-personaje")
-    name.addEventListener("submit", (e) => {
+    name.addEventListener("click", (e) => {
         e.preventDefault()
-        localStorage.setItem("list", JSON.stringify(name));
+        nombrePersonaje = name.value
     })
     let btnNombrarPersonaje = document.getElementById("boton-nombre")
     btnNombrarPersonaje.addEventListener("click", (e) => {
         e.preventDefault()
-        nombrePersonaje = name
+        nombrePersonaje = name.value
+        nombrarPersonaje()
     })
-    btnNombrarPersonaje.addEventListener("click", nombrarPersonaje)
 
     let btnEscogerPersonaje = document.getElementById("botonPersonaje")
     btnEscogerPersonaje.addEventListener("click", escogerPersonaje)
@@ -116,17 +122,17 @@ function personajeEnemigo () {
 }
 
 function ataqueEspada () {
-    ataqueJugador = "Espadaso en Salto"
+    ataqueJugador = ataques[0]
     ataqueEnemigoAleatorio ()
 }
 
 function ataqueMagia () {
-    ataqueJugador = "Bolido Oscuro"
+    ataqueJugador = ataques[1]
     ataqueEnemigoAleatorio ()
 }
 
 function ataqueContraataque () {
-    ataqueJugador = "Estocada con Parry"
+    ataqueJugador = ataques[2]
     ataqueEnemigoAleatorio ()
 }
 
@@ -134,11 +140,11 @@ function ataqueEnemigoAleatorio () {
     let ataqueAleatorio = aleatorio(1,3)
     
     if (ataqueAleatorio == 1) {
-        ataqueEnemigo = "Espadaso en Salto"
+        ataqueEnemigo = ataques[0]
     } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = "Bolido Oscuro"
+        ataqueEnemigo = ataques[1]
     } else {
-        ataqueEnemigo = "Estocada con Parry"
+        ataqueEnemigo = ataques[2]
     }
 
     combate()

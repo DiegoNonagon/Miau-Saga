@@ -13,16 +13,16 @@
 <body>
     <div id="pantalla-titulo" class="pantallaTitulo">
         <h1 class="titulo">
-        MIAU SAGA
+            MIAU SAGA
         </h1>
-        <button class="botonStart" id="comenzar-juego">Start</button>
+        <button class="botonStart" id="comenzar-juego">START</button>
     </div>
     <section class="nombrarPersonaje" id="nombrar-personaje">
         <h2 class="subTitulo">
             Ponle nombre a tu Michi.
         </h2>
         <form>
-            <label for="nombre-personaje">
+            <label>
                 <input id="nombre-personaje" class="inputNombre" type="text">
             </label>
             <button class="botonPersonaje" id="boton-nombre">Aceptar</button>
@@ -83,7 +83,6 @@
         <button class="botonPersonaje" id="botonPersonaje">Aceptar</button>
     </div>
 
-
     <section id="escoger-ataque" class="escogerAtaque">
     <h2 class="subTitulo">
         Escoge tu ataque.
@@ -96,15 +95,14 @@
             <span id="enemigo"></span> Tiene <span id="corazonesEnemigo">3</span> Corazones.
         </p>
         <img class="imgCorazon" src="./assets/corazon.png" alt="corazón">
+        <div class="escogerAtaque parrafoGenerado" id="alertas">
+
+        </div>
         <p class="contCombate">
             <button class="botonCombateEspada" id="boton-espada">Ataque con Espada ⚔️</button>
             <button class="botonCombateMagia" id="boton-magia">Ataque con Magia 🧙‍♂️</button>
-            <button class="botonCombateContraataque" id="boton-contraataque">Contraataque 🛡️</button>
+            <button class="botonCombateContraataque" id="boton-contraataque">Contra ataque🛡️</button>
         </p>
-    </section>
-
-    <section  class="escogerAtaque parrafoGenerado" id="alertas">
-
     </section>
 
     <section id="section-final" class="contCombate">
