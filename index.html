@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miau Saga</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="./js/miauSaga.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Annapurna+SIL:wght@400;700&family=Anta&family=Jacquarda+Bastarda+9&family=Kode+Mono:wght@400..700&family=Micro+5&family=Pacifico&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -15,9 +14,20 @@
         <h1 class="titulo">
             MIAU SAGA
         </h1>
-        <button class="botonStart" id="comenzar-juego">START</button>
+        <button class="botonIniciar" id="iniciar-juego">INICIAR</button>
     </div>
-    <section class="nombrarPersonaje" id="nombrar-personaje">
+
+    <div class="pantallaTitulo" id="intro" style="display: none;">
+        <h2 class="subtitulo">
+            En las tierras lejanas de MichiKron se alza un nuevo poder.
+        </h2>
+        <h2 class="subtitulo">
+            El Catnip Supremo. Solo un Michi capaz de reclamar el poder reinara.
+        </h2>
+        <button class="botonIniciar" id="continuar">CONTINUAR</button>
+    </div>
+
+    <section class="nombrarPersonaje" id="nombrar-personaje" style="display: none;">
         <h2 class="subTitulo">
             Ponle nombre a tu Michi.
         </h2>
@@ -30,85 +40,206 @@
         
     </section>
 
-    <h2 id="escoger-personaje" class="subTitulo">
+    <h2 id="escoger-titulo" class="subTitulo" style="display: none;">
         Escoge a tu personaje.
     </h2>
-    <section id="escoger-personajes" class="escogerPersonaje">
+
+    <section id="escoger-personajes" class="escogerPersonaje" style="display: none;">
         <label for="michiGuts">
             <div class="card">
-                <img src="./assets/michiGuts.png" class="card-img-top" alt="Michi Guts">
+                <img src="assets/michiGuts.png" class="card-img-top" alt="Michi Guts">
                 <div class="card-body card-color">
                     <p class="card-titulo">
-                    Michi Guts
+                        Michi Guts
                     </p>
-                    <p class="card-parrafo">
-                    
-                    </p>
-                    </div>
+                    <h3 class="card-parrafo">
+                        Corazones: 5
+                    </h3>
+                    <h3 class="card-parrafo">
+                        Daño: 2
+                    </h3>
                 </div>
+            </div>
         </label>
-        <input class="imputPersonaje" type="radio" name="personaje" id="michiGuts"/>
+        <input class="inputPersonaje" type="radio" name="personaje" id="michiGuts" />
 
+        <input class="inputPersonaje" type="radio" name="personaje" id="michiSekiro" />
         <label for="michiSekiro">
             <div class="card">
-                <img src="./assets/michiSekiro.jpg" class="card-img-top" alt="Michi Sekiro">
+                <img src="assets/michiSekiro.jpg" class="card-img-top" alt="Michi Sekiro">
                 <div class="card-body card-color">
                     <p class="card-titulo">
-                    Michi Sekiro
+                        Michi Sekiro
                     </p>
-                    <p class="card-parrafo">
-                    
-                    </p>
-                    </div>
+                    <h3 class="card-parrafo">
+                        Corazones: 6
+                    </h3>
+                    <h3 class="card-parrafo">
+                        Daño: 1
+                    </h3>
                 </div>
+            </div>
         </label>
-        <input class="imputPersonaje" type="radio" name="personaje" id="michiSekiro"/>
 
+        <input class="inputPersonaje" type="radio" name="personaje" id="michiGandalf" />
         <label for="michiGandalf">
             <div class="card">
-                <img src="./assets/michiGandalf.jpg" class="card-img-top" alt="Michi Gandalf">
+                <img src="assets/michiGandalf.jpg" class="card-img-top" alt="Michi Gandalf">
                 <div class="card-body card-color">
                     <p class="card-titulo">
-                    Michi Gandalf
+                        Michi Gandalf
                     </p>
-                    <p class="card-parrafo">
-                    
-                    </p>
-                    </div>
+                    <h3 class="card-parrafo">
+                        Corazones: 3
+                    </h3>
+                    <h3 class="card-parrafo">
+                        Daño: 3
+                    </h3>
                 </div>
+            </div>
         </label>
-        <input class="imputPersonaje" type="radio" name="personaje" id="michiGandalf"/>
+
     </section>
-    <div id="boton-personaje" class="botonCont">
+    <div id="boton-personaje" class="botonCont" style="display: none;">
         <button class="botonPersonaje" id="botonPersonaje">Aceptar</button>
     </div>
 
-    <section id="escoger-ataque" class="escogerAtaque">
-    <h2 class="subTitulo">
-        Escoge tu ataque.
-    </h2>
-        <p class="parrafoGenerado">
-            <span id="personajes"></span> Tiene <span id="corazonesJugador">5</span> Corazones.
-        </p>
-        <img class="imgCorazon" src="./assets/corazon.png" alt="corazón">
-        <p  class="parrafoGenerado">
-            <span id="enemigo"></span> Tiene <span id="corazonesEnemigo">3</span> Corazones.
-        </p>
-        <img class="imgCorazon" src="./assets/corazon.png" alt="corazón">
-        <div class="escogerAtaque parrafoGenerado" id="alertas">
+    <section id="nivel-1" class="nivel1" style="display: none;">
+        <h2 class="subtitulo">
+            NIVEL 1 BOSQUE DE LAS SUCULENTAS
+        </h2>
+        <button class="botonIniciar" id="continuar-1">CONTINUAR</button>
+    </section>
 
+    <section class="combateUno" id="combate-1" style="display: none;">
+        <div class="contEnemigo">
+            <h2 class="subTitulo">
+                Vence a Michi Garras Salvajes
+            </h2>
+            <img class="imgEnemigo" src="./assets/michiGS.jpg" alt="Michi Garras Salvajes">
         </div>
-        <p class="contCombate">
-            <button class="botonCombateEspada" id="boton-espada">Ataque con Espada ⚔️</button>
-            <button class="botonCombateMagia" id="boton-magia">Ataque con Magia 🧙‍♂️</button>
-            <button class="botonCombateContraataque" id="boton-contraataque">Contra ataque🛡️</button>
-        </p>
+        <div class="Contcombate">
+            <div class="cuadroJugador" id="text-jugador">
+                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+            </div>
+            <div class="cuadroEnemigo" id="text-enemigo">
+                <span class="parrafoGenerado" id="enemigo-gen1"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo1"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque-enemigo1"></span>
+            </div>
+            <div class="btnsCombate" id="botones-combate">
+                
+            </div>
+        </div>
+
+        <button class="botonIniciar" id="siguiente-nivel1" style="display: none;">CONTINUAR</button>
+        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
     </section>
 
-    <section id="section-final" class="contCombate">
-        <button class="botonFinal" id="boton-reiniciar">Fin del Juego</button>
+    <section id="nivel-2" class="nivel2" style="display: none;">
+        <h2 class="subtitulo">
+            NIVEL 2 TUMBA DE LOS CAIDOS
+        </h2>
+        <button class="botonIniciar" id="continuar-2">CONTINUAR</button>
     </section>
-    
+
+    <section class="combateDos" id="combate-2" style="display: none;">
+        <div class="contEnemigo">
+            <h2 class="subTitulo">
+                Vence a Michi Mago Oscuro
+            </h2>
+            <img class="imgEnemigo" src="./assets/michiMO.jpg" alt="Michi Mago Oscuro">
+        </div>
+        
+        <div class="Contcombate">
+            <div class="cuadroJugador" id="text-jugador">
+                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+            </div>
+            <div class="cuadroEnemigo" id="text-enemigo">
+                <span class="parrafoGenerado" id="enemigo-gen2"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo2"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque-enemigo2"></span>
+            </div>
+            <div class="btnsCombate" id="botones-combate">
+                
+            </div>
+        </div>
+        <button class="botonIniciar" id="siguiente-nivel2" style="display: none;">CONTINUAR</button>
+        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+    </section>
+
+    <section class="nivel3" style="display: none;">
+        <h2 class="subtitulo">
+            NIVEL 3 LLANURAS DESOLADAS
+        </h2>
+        <button class="botonIniciar" id="continuar-3">CONTINUAR</button>
+    </section>
+
+    <section class="combateTres" id="combate-3" style="display: none;">
+        <div class="contEnemigo">
+            <h2 class="subTitulo">
+                Vence a Michi Aliento Venenoso
+            </h2>
+            <img class="imgEnemigo" src="./assets/michiAV.jpg" alt="Michi Aliento Venenoso">
+        </div>
+        <div class="Contcombate">
+            <div class="cuadroJugador" id="text-jugador">
+                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+            </div>
+            <div class="cuadroEnemigo" id="text-enemigo">
+                <span class="parrafoGenerado" id="enemigo-gen3"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo3"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque-enemigo3"></span>
+            </div>
+            <div class="btnsCombate" id="botones-combate">
+               
+            </div>
+        </div>
+        <button class="botonIniciar" id="siguiente-nivel3" style="display: none;">CONTINUAR</button>
+        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+    </section>
+
+    <section class="nivelFinal" style="display: none;">
+        <h2 class="subtitulo">
+            NIVEL FINAL PRADOS DEL CATNIP SUPREMO
+        </h2>
+        <button class="botonIniciar" id="continuar-4">CONTINUAR</button>
+    </section>
+
+    <section class="combateFinal" id="combate-final" style="display: none;">
+        <div class="contEnemigo">
+            <h2 class="subTitulo">
+                Vence a Jefe Michi Colosal
+            </h2>
+            <img class="imgEnemigo" src="./assets/jefeMichi.jpg" alt="Jefe Michi Colosal">
+        </div>
+        <div class="Contcombate">
+            <div class="cuadroJugador" id="text-jugador">
+                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+            </div>
+            <div class="cuadroEnemigo" id="text-enemigo">
+                <span class="parrafoGenerado" id="enemigo-gen4"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo4"></span>
+                <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
+                <span class="parrafoGenerado" id="parrafo-ataque-enemigo4"></span>
+            </div>
+            <div class="btnsCombate" id="botones-combate">
+                <button class="btnAtaque" id="ataque-uno">ATAQUE 1</button>
+                <button class="btnAtaque" id="ataque-dos">ATAQUE 2</button>
+                <button class="btnAtaque" id="ataque-tres">ATAQUE 3</button>
+            </div>
+        </div>
+        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+    </section>
+
+    <script src="./js/miauSaga.js"></script>
 </body>
 </html>
 

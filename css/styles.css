@@ -5,6 +5,10 @@
     color: aliceblue;
 }
 
+.h2{
+    display: flex;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -44,8 +48,15 @@ img {
     font-family: "Micro 5", sans-serif;
     color: darkgoldenrod;
 }
+    
+.subtitulo{
+    font-size: 4rem;
+    font-family: "Micro 5", sans-serif;
+    color: darkgoldenrod;
+    text-align: center;
+}
 
-.botonStart{
+.botonIniciar{
     width: 10rem;
     height: 5rem;
     border-radius: 12px;
@@ -57,7 +68,7 @@ img {
     transition: all .5s ease;
 }
 
-.botonStart:hover{
+.botonIniciar:hover{
     color:green;
     background-color: darkgoldenrod;
     border-radius: 25px;
@@ -94,12 +105,13 @@ img {
     text-align: center;
     font-family: "Micro 5", sans-serif;
     margin: 5rem;
+    flex-direction: column;
 }
 
 .card {
     max-width: 25rem;
     background-color: green;
-    margin: 1rem;
+    margin: 3rem 1rem;
     border-radius: 12px;
     transition: all 0.5s ease;
 }
@@ -119,7 +131,13 @@ img {
     min-width: 25rem;
 }
 
-.imputPersonaje{
+.card-parrafo{
+    font-size: 2rem;
+    font-family: "Micro 5", sans-serif;
+    text-align: center;
+}
+
+.inputPersonaje{
     display: none;
 }
 
@@ -137,6 +155,7 @@ img {
     background-color: green;
     font-family: "Micro 5", sans-serif;
     font-size: 3rem;
+    margin-top: 2rem;
     border: black .3rem solid;
     transition: all 0.5s ease;
 }
@@ -146,8 +165,156 @@ img {
     border-radius: 25px;
 }
 
+.contEnemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgEnemigo{
+    width: 200px;
+    height: 250px;
+    border-radius: 12px;
+    border-radius: solid 5px black;
+}
+
+.nivel1{
+    background-image: url(../assets/bgSuculentas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    padding: 12%;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.combateUno{
+    background-image: url(../assets/bgSuculentas.jpg);
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.combateDos{
+    background-image: url(../assets/bgCatacumba.jpg);
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.combateTres{
+    background-image: url(../assets/bgLlanura.jpg);
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.combateFinal{
+    background-image: url(../assets/bgFinal.jpg);
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.Contcombate{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cuadroJugador{
+    display: flex;
+    background-color: rgb(44, 42, 42);
+    width: 500px;
+    height: 180px;
+    border: solid 3px black;
+    margin: 3rem;
+    border-radius: 20px;
+    padding: 2rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cuadroEnemigo{
+    display: flex;
+    background-color: rgb(44, 42, 42);
+    width: 500px;
+    height: 180px;
+    border: solid 3px black;
+    margin: 3rem;
+    border-radius: 20px;
+    padding: 2rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .imgCorazon{
-    width: 10rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+.btnsCombate{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 120px;
+    background-color: rgb(44, 42, 42);
+    border: solid 3px black;
+    margin: 3rem;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnAtaque{
+    width: 380px;
+    height: 38px;
+    border: solid 2px black;
+    border-radius: 12px;
+    justify-content: center;
+    background-color: rgb(44, 42, 42);
+    font-family: "Micro 5", sans-serif;
+    font-size: 3rem;
+}
+
+.btnAtaque:hover{
+    background-color: rgb(112, 111, 111);
+}
+
+.nivel2{
+    background-image: url(../assets/bgCatacumba.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    padding: 12%;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.nivel3{
+    background-image: url(../assets/bgLlanura.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    padding: 12%;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.nivelFinal{
+    background-image: url(../assets/bgFinal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    padding: 12%;
+    flex-direction: column;
+    gap: 10rem;
 }
 
 .escogerAtaque{
@@ -162,7 +329,6 @@ img {
 .parrafoGenerado{
     font-size: 3rem;
     font-family: "Micro 5", sans-serif;
-    background-image: url(../assets/bg2.gif);
 }
 
 .contCombate{
@@ -171,72 +337,4 @@ img {
     align-items: center;
     gap: 3rem;
     margin: 3rem;
-}
-
-.botonCombateEspada{
-    width: 20rem;
-    height: 6.8rem;
-    border-radius: 12px;
-    background-color: rgb(91, 88, 88);
-    color: firebrick;
-    border: black .3rem solid;
-    font-family:"Micro 5", sans-serif;
-    font-size: 2.8rem;
-    transition: all ease 0.5s;
-}
-
-.botonCombateEspada:hover{
-    background-color: firebrick;
-    color: rgb(91, 88, 88);
-}
-
-.botonCombateMagia{
-    width: 20rem;
-    height: 6.8rem;
-    border-radius: 12px;
-    background-color: rgb(43, 43, 167);
-    color: rgb(188, 188, 83);
-    border: black .3rem solid;
-    font-family:"Micro 5", sans-serif;
-    font-size: 2.8rem;
-    transition: all ease 0.5s;
-}
-
-.botonCombateMagia:hover{
-    background-color: rgb(188, 188, 83);
-    color: rgb(43, 43, 167);
-}
-
-.botonCombateContraataque{
-    width: 20rem;
-    height: 6.8rem;
-    border-radius: 12px;
-    background-color: rgb(44, 143, 75);
-    color: rgb(118, 46, 147);
-    border: black .3rem solid;
-    font-family:"Micro 5", sans-serif;
-    font-size: 2.8rem;
-    transition: all ease 0.5s;
-}
-
-.botonCombateContraataque:hover{
-    background-color: rgb(118, 46, 147);
-    color: rgb(44, 143, 75);
-}
-
-.botonFinal{
-    width: 18rem;
-    height: 5rem;
-    border-radius: 12px;
-    background-color: rgb(6, 151, 52);
-    color: rgb(59, 65, 18);
-    border: black .3rem solid;
-    font-family:"Micro 5", sans-serif;
-    font-size: 2rem;
-    transition: all ease 0.5s;
-}
-
-.botonFinal:hover{
-    background-color: rgb(59, 65, 18);
-    color: rgb(6, 151, 52);
 }
