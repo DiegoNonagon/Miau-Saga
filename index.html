@@ -55,9 +55,6 @@
                     <h3 class="card-parrafo">
                         Corazones: 5
                     </h3>
-                    <h3 class="card-parrafo">
-                        Daño: 2
-                    </h3>
                 </div>
             </div>
         </label>
@@ -74,9 +71,6 @@
                     <h3 class="card-parrafo">
                         Corazones: 6
                     </h3>
-                    <h3 class="card-parrafo">
-                        Daño: 1
-                    </h3>
                 </div>
             </div>
         </label>
@@ -91,9 +85,6 @@
                     </p>
                     <h3 class="card-parrafo">
                         Corazones: 3
-                    </h3>
-                    <h3 class="card-parrafo">
-                        Daño: 3
                     </h3>
                 </div>
             </div>
@@ -122,20 +113,24 @@
             <div class="cuadroJugador" id="text-jugador">
                 <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
-                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+                <p class="parrafoGenerado" id="parrafo-ataque"></p>
             </div>
             <div class="cuadroEnemigo" id="text-enemigo">
                 <span class="parrafoGenerado" id="enemigo-gen1"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo1"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
-                <span class="parrafoGenerado" id="parrafo-ataque-enemigo1"></span>
+                <p class="parrafoGenerado" id="parrafo-ataque-enemigo1"></p>
             </div>
             <div class="btnsCombate" id="botones-combate">
                 
             </div>
         </div>
-
-        <button class="botonIniciar" id="siguiente-nivel1" style="display: none;">CONTINUAR</button>
-        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+        <div class="contBtn" id="cont-btn-uno" style="display: none;">
+            <button class="botonIniciar" id="siguiente-nivel1" >CONTINUAR</button>
+        </div>
+        <div id="cont-fin-uno" style="display: none;">
+            <button class="botonIniciar" id="final-juego-uno">FIN DEL JUEGO</button>
+        </div>
+        
     </section>
 
     <section id="nivel-2" class="nivel2" style="display: none;">
@@ -155,24 +150,29 @@
         
         <div class="Contcombate">
             <div class="cuadroJugador" id="text-jugador">
-                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <span class="parrafoGenerado" id="personaje-gen-dos"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-dos"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
-                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+                <p class="parrafoGenerado" id="parrafo-ataque-dos"></p>
             </div>
             <div class="cuadroEnemigo" id="text-enemigo">
                 <span class="parrafoGenerado" id="enemigo-gen2"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo2"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
-                <span class="parrafoGenerado" id="parrafo-ataque-enemigo2"></span>
+                <p class="parrafoGenerado" id="parrafo-ataque-enemigo2"></p>
             </div>
-            <div class="btnsCombate" id="botones-combate">
+            <div class="btnsCombate" id="botones-combate-dos">
                 
             </div>
         </div>
-        <button class="botonIniciar" id="siguiente-nivel2" style="display: none;">CONTINUAR</button>
-        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+        <div id="cont-btn-dos" style="display: none;">
+            <button class="botonIniciar" id="siguiente-nivel2">CONTINUAR</button>
+        </div>
+        <div id="cont-fin-dos" style="display: none;">
+            <button class="botonIniciar" id="final-juego-dos">FIN DEL JUEGO</button>
+        </div>
+        
     </section>
 
-    <section class="nivel3" style="display: none;">
+    <section class="nivel3" id="nivel-3" style="display: none;">
         <h2 class="subtitulo">
             NIVEL 3 LLANURAS DESOLADAS
         </h2>
@@ -188,24 +188,29 @@
         </div>
         <div class="Contcombate">
             <div class="cuadroJugador" id="text-jugador">
-                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <span class="parrafoGenerado" id="personaje-gen-tres"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-tres"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
-                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+                <span class="parrafoGenerado" id="parrafo-ataque-tres"></span>
             </div>
             <div class="cuadroEnemigo" id="text-enemigo">
                 <span class="parrafoGenerado" id="enemigo-gen3"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo3"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
                 <span class="parrafoGenerado" id="parrafo-ataque-enemigo3"></span>
             </div>
-            <div class="btnsCombate" id="botones-combate">
-               
+            <div class="btnsCombate" id="botones-combate-tres">
+            
             </div>
         </div>
-        <button class="botonIniciar" id="siguiente-nivel3" style="display: none;">CONTINUAR</button>
-        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+
+        <div id="cont-btn-tres" style="display: none;">
+            <button class="botonIniciar" id="siguiente-nivel3">CONTINUAR</button>
+        </div>
+        <div id="cont-fin-tres" style="display: none;">
+            <button class="botonIniciar" id="final-juego-tres">FIN DEL JUEGO</button>
+        </div>
     </section>
 
-    <section class="nivelFinal" style="display: none;">
+    <section id="nivel-4" class="nivelFinal" style="display: none;">
         <h2 class="subtitulo">
             NIVEL FINAL PRADOS DEL CATNIP SUPREMO
         </h2>
@@ -221,22 +226,23 @@
         </div>
         <div class="Contcombate">
             <div class="cuadroJugador" id="text-jugador">
-                <span class="parrafoGenerado" id="personaje-gen"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones"></span>
+                <span class="parrafoGenerado" id="personaje-gen-cuatro"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-cuatro"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
-                <span class="parrafoGenerado" id="parrafo-ataque"></span>
+                <span class="parrafoGenerado" id="parrafo-ataque-cuatro"></span>
             </div>
             <div class="cuadroEnemigo" id="text-enemigo">
                 <span class="parrafoGenerado" id="enemigo-gen4"></span><br><p class="parrafoGenerado">Tiene </p><span class="parrafoGenerado" id="corazones-enemigo4"></span>
                 <img class="imgCorazon" src="./assets/corazon.png" alt="corazon">
                 <span class="parrafoGenerado" id="parrafo-ataque-enemigo4"></span>
             </div>
-            <div class="btnsCombate" id="botones-combate">
-                <button class="btnAtaque" id="ataque-uno">ATAQUE 1</button>
-                <button class="btnAtaque" id="ataque-dos">ATAQUE 2</button>
-                <button class="btnAtaque" id="ataque-tres">ATAQUE 3</button>
+            <div class="btnsCombate" id="botones-combate-cuatro">
+                
             </div>
         </div>
-        <button class="botonIniciar" id="final-juego" style="display: none;">FIN DEL JUEGO</button>
+
+        <div id="cont-btn-cuatro" style="display: none;">
+            <button class="botonIniciar" id="final-juego">FIN DEL JUEGO</button>
+        </div>
     </section>
 
     <script src="./js/miauSaga.js"></script>
