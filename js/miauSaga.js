@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {nombre: "Cometa Azul", id: "ataque-tres-d"},
     )
 
-    michiGarrasSalvajes.ataques.push(
+    michiGarrasSalvajes.ataques.push(  // ya no tuve tiempo para usar los ataques de los enemigos :(, espero agregarlos en una actualizacion
         {nombre: "Garraso Sangriento", id: "ataque-enemigo-uno"},
         {nombre: "Cuchillo Rapido", id:"ataque-enemigo-dos"},
         {nombre: "Patada Giratoria", id: "ataque-enemigo-tres"},
@@ -559,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
         spanCoraEnemigoUno.innerHTML = corazonesEnemigo
     })
 
-    function crearMensajePersonaje (resultado) {
+    function crearMensajePersonaje (resultado) {   //funciones para mostrar si el ataque acerto o fallo
         parrafoAtaque.innerHTML = nombrePersonaje + resultado
     }
 
@@ -595,7 +595,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function probabilidadPersonaje () {
+    function probabilidadPersonaje () {  //funsiones de probabilidad para los ataques del jugador
         let ataqueAcertado = aleatorio(1,3)
             if(ataqueAcertado === 1) {
                 crearMensajePersonaje(" Falló el ataque")
@@ -643,7 +643,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             ProbabilidadEnemigoD ()
                     }
 
-    function ProbabilidadEnemigo () {
+    function ProbabilidadEnemigo () {   //funsiones para el ataque de los enemigos con probabilidades distintas
         let ataqueAcertado = aleatorio(1,2)
 
         if (ataqueAcertado === 1) {
@@ -696,11 +696,11 @@ document.addEventListener("DOMContentLoaded", function () {
         comprobarCorazonesCuatro()
     }
 
-    function aleatorio (min,max) {
+    function aleatorio (min,max) {                   //math random para probabilidad de conectar un ataque
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
-    function comprobarCorazonesUno() {
+    function comprobarCorazonesUno() {  //funsiones de comparacion de corazones
         if(corazonesEnemigo == 0){
             crearFinal("¡HAS GANADO!")
             abilitarBtnContinuarUno ()
@@ -740,7 +740,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function abilitarBtnContinuarUno () {
+    function abilitarBtnContinuarUno () { //funciones para avilitar los botones de continuar para cada nivel
         conBtnUno.style.display = "flex"
     }
 
@@ -769,7 +769,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function crearFinal (resultadoFinal) {
+    function crearFinal (resultadoFinal) {  //funciones para desavilitar los botones de ataque una vez ganas o pierdes
         parrafoAtaque.innerHTML = resultadoFinal
 
             btnAtaqueUno.disable = true
@@ -802,7 +802,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    btnConNivUno.addEventListener("click", function(){
+    btnConNivUno.addEventListener("click", function(){ //funciones para cargar las pantallas de cada nivel
         combateUno.style.display = "none"
         nivelDos.style.display = "flex"
     })
@@ -835,7 +835,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nivelCuatro.style.display = "flex"
     })
 
-    btnContinuarCuatro.addEventListener("click", function(){
+    btnContinuarCuatro.addEventListener("click", function(){ 
         nivelCuatro.style.display = "none"
         combateCuatro.style.display = "flex"
         personajeEnemigo = jefeMichiColosal.nombre
@@ -844,7 +844,7 @@ document.addEventListener("DOMContentLoaded", function () {
         spanCoraEnemigoCuatro.innerHTML = corazonesEnemigo
     })
 
-    btnFinUno.addEventListener("click", reiniciarJuego)
+    btnFinUno.addEventListener("click", reiniciarJuego) //botones para neiniciar el juego
     btnFinDos.addEventListener("click", reiniciarJuego)
     btnFinTres.addEventListener("click", reiniciarJuego)
     btnFinal.addEventListener("click", reiniciarJuego)
@@ -853,137 +853,3 @@ document.addEventListener("DOMContentLoaded", function () {
         location.reload()
     }
 })
-
-
-
-
-
-/*function iniciarJuego () {
-
-    let name = document.getElementById("nombre-personaje")
-    name.addEventListener("click", (e) => {
-        e.preventDefault()
-        nombrePersonaje = name.value
-    })
-    let btnNombrarPersonaje = document.getElementById("boton-nombre")
-    btnNombrarPersonaje.addEventListener("click", (e) => {
-        e.preventDefault()
-        nombrePersonaje = name.value
-        nombrarPersonaje()
-    })
-
-    let btnEscogerPersonaje = document.getElementById("botonPersonaje")
-    btnEscogerPersonaje.addEventListener("click", escogerPersonaje)
-
-    let btnEspada = document.getElementById("boton-espada")
-    btnEspada.addEventListener("click", ataqueEspada)
-    let btnMagia = document.getElementById("boton-magia")
-    btnMagia.addEventListener("click", ataqueMagia)
-    let btnContraataque = document.getElementById("boton-contraataque")
-    btnContraataque.addEventListener("click", ataqueContraataque)
-
-    let btnReiniciar = document.getElementById("boton-reiniciar")
-    btnReiniciar.addEventListener("click", reiniciarJuego)
-}
-
-function ataqueEspada () {
-    ataqueJugador = ataques[0]
-    ataqueEnemigoAleatorio ()
-}
-
-function ataqueMagia () {
-    ataqueJugador = ataques[1]
-    ataqueEnemigoAleatorio ()
-}
-
-function ataqueContraataque () {
-    ataqueJugador = ataques[2]
-    ataqueEnemigoAleatorio ()
-}
-
-function ataqueEnemigoAleatorio () {
-    let ataqueAleatorio = aleatorio(1,3)
-    
-    if (ataqueAleatorio == 1) {
-        ataqueEnemigo = ataques[0]
-    } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = ataques[1]
-    } else {
-        ataqueEnemigo = ataques[2]
-    }
-
-    combate()
-}
-
-function crearAlerta (resultado) {
-    let sectionAlertas = document.getElementById("alertas")
-
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = nombrePersonaje + " atacó con " + ataqueJugador + ", El enemigo atacó con " + ataqueEnemigo + ", " + resultado
-
-    sectionAlertas.appendChild(parrafo)
-}
-
-function combate () {
-    let spanCorazonesJugador = document.getElementById("corazonesJugador")
-    let spanCorazonesEnemigo = document.getElementById("corazonesEnemigo")
-
-    if (ataqueJugador == ataqueEnemigo) {
-        crearAlerta("Se neutralisaron los ataques")
-    } else if (ataqueJugador == "Espadaso en Salto" && ataqueEnemigo == "Bolido Oscuro") {
-        crearAlerta("Acertaste el ataque")
-        corazonesEnemigo--
-        spanCorazonesEnemigo.innerHTML = corazonesEnemigo
-    } else if (ataqueJugador == "Bolido Oscuro" && ataqueEnemigo == "Estocada con Parry") {
-        crearAlerta("Acertaste el ataque")
-        corazonesEnemigo--
-        spanCorazonesEnemigo.innerHTML = corazonesEnemigo
-    }else if  (ataqueJugador == "Estocada con Parry" && ataqueEnemigo == "Espadaso en Salto") {
-        crearAlerta("Acertaste el ataque")
-        corazonesEnemigo--
-        spanCorazonesEnemigo.innerHTML = corazonesEnemigo
-    } else {
-        crearAlerta("Recibiste el ataque")
-        corazonesJugador--
-        spanCorazonesJugador.innerHTML = corazonesJugador
-    }
-
-    comprobarCorazones()
-}
-
-function comprobarCorazones() {
-    if(corazonesEnemigo == 0){
-        crearFinal("¡HAS GANADO!")
-    } else if (corazonesJugador == 0){
-        crearFinal("¡HAS MUERTO!")
-    }
-}
-
-function crearFinal (resultadoFinal) {
-    let sectionFinal = document.getElementById("section-final")
-    sectionFinal.style.display = "flex"
-
-    let sectionAlertas = document.getElementById("alertas")
-
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = resultadoFinal
-
-    sectionAlertas.appendChild(parrafo)
-
-    let btnEspada = document.getElementById("boton-espada")
-    btnEspada.disabled = true
-    let btnMagia = document.getElementById("boton-magia")
-    btnMagia.disabled = true
-    let btnContraataque = document.getElementById("boton-contraataque")
-    btnContraataque.disabled = true
-}
-
-function reiniciarJuego(){
-    location.reload()
-}
-
-function aleatorio (min,max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-window.addEventListener("load", iniciarJuego)*/
