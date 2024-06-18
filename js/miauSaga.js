@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const url = "./data.json"
 
-    fetch(url)   //Metodo fetch para obtener datos de dla musica del juego
+    fetch(url)   //Metodo fetch para obtener datos de la musica del juego
     .then(res => res.json())
     .then(data => mostrarMusica(data))
 
