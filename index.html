@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Annapurna+SIL:wght@400;700&family=Anta&family=Jacquarda+Bastarda+9&family=Kode+Mono:wght@400..700&family=Micro+5&family=Pacifico&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="musica">
+        
+    </div>
     <div id="pantalla-titulo" class="pantallaTitulo">
         <h1 class="titulo">
             MIAU SAGA
@@ -31,11 +34,9 @@
         <h2 class="subTitulo">
             Ponle nombre a tu Michi.
         </h2>
-        <form>
-            <label>
-                <input id="nombre-personaje" class="inputNombre" type="text">
-            </label>
-            <button class="botonPersonaje" id="boton-nombre">Aceptar</button>
+        <form id="nombre-form">
+            <input id="nombre-personaje" class="inputNombre" type="text">
+            <button type="submit" class="botonPersonaje" id="boton-nombre">Aceptar</button>
         </form>
         
     </section>
@@ -244,8 +245,8 @@
             <button class="botonIniciar" id="final-juego">FIN DEL JUEGO</button>
         </div>
     </section>
-
     <script src="./js/miauSaga.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
 

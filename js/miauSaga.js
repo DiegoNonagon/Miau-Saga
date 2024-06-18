@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {   
-    const btnIniciar = document.getElementById("iniciar-juego")  //Todas las variables al inicio para no repetir lineas de codigo
+    const Contmusica = document.getElementById("musica")   //Todas las variables al inicio para no repetir lineas de codigo
+
+    const btnIniciar = document.getElementById("iniciar-juego")
     const pantallaTitulo = document.getElementById("pantalla-titulo")
 
     const intro = document.getElementById("intro")
     const btnContinuar = document.getElementById("continuar")
 
     const nombrarPersonaje = document.getElementById("nombrar-personaje")
+    const nombreForm = document.getElementById("nombre-form")
+    const inputNombre = document.getElementById("nombre-personaje")
+    const btnNombre = document.getElementById("boton-nombre")
 
     const pantallaPersonaje = document.getElementById("escoger-personajes")
     const personajeTitulo = document.getElementById("escoger-titulo")
@@ -83,8 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let personajesC = []
     let personajesD = []
     let enemigos = []
-    let inputNombre
-    let btnNombre
     let personajeEscogido
     let corazonesPersonaje
     let personajeEscogidoDos
@@ -118,7 +121,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let corazonesEnemigo
     let personajeEnemigo
-    
+
+    const url = "./data.json"
+
+    fetch(url)   //Metodo fetch para obtener datos de dla musica del juego
+    .then(res => res.json())
+    .then(data => mostrarMusica(data))
+
+    function mostrarMusica (musica){
+        musica.forEach(music => {
+            let audio = document.createElement("div")
+            audio.innerHTML = `
+                                <audio controls autoplay style="display: block;" type="audio/mp3" src="${music.link}"></audio>
+                            `
+                            Contmusica.appendChild(audio)
+        })
+    }
+
     //constructor para generar personajes
     class Personaje {
         constructor(nombre, corazones) {
@@ -267,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {nombre: "Cometa Azul", id: "ataque-tres-d"},
     )
 
-    michiGarrasSalvajes.ataques.push(  // ya no tuve tiempo para usar los ataques de los enemigos :(, espero agregarlos en una actualizacion
+    michiGarrasSalvajes.ataques.push(  // ya no tuve tiempo para usar los ataques de los enemigos :(, espero agregarlos en una actualización
         {nombre: "Garraso Sangriento", id: "ataque-enemigo-uno"},
         {nombre: "Cuchillo Rapido", id:"ataque-enemigo-dos"},
         {nombre: "Patada Giratoria", id: "ataque-enemigo-tres"},
@@ -305,27 +324,27 @@ document.addEventListener("DOMContentLoaded", function () {
         intro.style.display = "none"
         nombrarPersonaje.style.display = "flex"
     })
-        inputNombre = document.getElementById("nombre-personaje")
-        inputNombre.addEventListener("submit", (e) => {
-            nombrePersonaje = inputNombre.value.text //funsión para obtener nombre del personaje haciendo submit en el input
-            e.preventDefault()
+
+    let data = JSON.parse(localStorage.getItem("formData")) || []
+
+    nombreForm.addEventListener("submit", (e) => { //funsión para obtener nombre del personaje haciendo submit en el input
+        e.preventDefault()
+        nombrePersonaje = inputNombre.value
+        if (nombrePersonaje) {
+            const nuevaData = nombrePersonaje
+            data.push(nuevaData)
+            guardadLocalStorage()
+        }
         
-            nombrarPersonaje.style.display = "none"
-            pantallaPersonaje.style.display = "flex"
-            personajeTitulo.style.display = "block"
-            btnPersonaje.style.display = "flex"
+        nombrarPersonaje.style.display = "none"
+        pantallaPersonaje.style.display = "flex"
+        personajeTitulo.style.display = "block"
+        btnPersonaje.style.display = "flex"
     })
 
-        btnNombre = document.getElementById("boton-nombre")
-        btnNombre.addEventListener("click", (e) => {
-            nombrePersonaje = btnNombre.value.text  //funsión para obtener nombre del personaje haciendo click en el boton
-            e.preventDefault()
-            
-            nombrarPersonaje.style.display = "none"
-            pantallaPersonaje.style.display = "flex"
-            personajeTitulo.style.display = "block"
-            btnPersonaje.style.display = "flex"
-    })
+    function guardadLocalStorage(){
+        localStorage.setItem("formData", JSON.stringify(data))
+    }
 
     btnPersonaje.addEventListener("click", function() {
         pantallaPersonaje.style.display = "none"
@@ -703,9 +722,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function comprobarCorazonesUno() {  //funsiones de comparacion de corazones
         if(corazonesEnemigo == 0){
             crearFinal("¡HAS GANADO!")
+            Swal.fire("¡HAS GANADO!");
             abilitarBtnContinuarUno ()
         } else if (corazonesPersonaje == 0){
             crearFinal("¡HAS MUERTO!")
+            Swal.fire("¡HAS MUERTO!");
             abilitarBtnFinalUno ()
         }
     }
@@ -713,9 +734,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function comprobarCorazonesDos() {
         if(corazonesEnemigo == 0){
             crearFinalB("¡HAS GANADO!")
+            Swal.fire("¡HAS GANADO!");
             abilitarBtnContinuarDos ()
         } else if (corazonesPersonajeDos == 0){
             crearFinalB("¡HAS MUERTO!")
+            Swal.fire("¡HAS MUERTO!");
             abilitarBtnFinalDos ()
         }
     }
@@ -723,9 +746,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function comprobarCorazonesTres() {
         if(corazonesEnemigo == 0){
             crearFinalC("¡HAS GANADO!")
+            Swal.fire("¡HAS GANADO!");
             abilitarBtnContinuarTres ()
         } else if (corazonesPersonajeTres == 0){
             crearFinalC("¡HAS MUERTO!")
+            Swal.fire("¡HAS MUERTO!");
             abilitarBtnFinalTres ()
         }
     }
@@ -733,9 +758,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function comprobarCorazonesCuatro() {
         if(corazonesEnemigo == 0){
             crearFinalD("¡HAS GANADO!")
+            Swal.fire("¡HAS GANADO!");
             abilitarBtnContinuarCuatro ()
         } else if (corazonesPersonajeCuatro == 0){
             crearFinalD("¡HAS MUERTO!")
+            Swal.fire("¡HAS MUERTO!");
             abilitarBtnContinuarCuatro ()
         }
     }
@@ -772,33 +799,33 @@ document.addEventListener("DOMContentLoaded", function () {
     function crearFinal (resultadoFinal) {  //funciones para desavilitar los botones de ataque una vez ganas o pierdes
         parrafoAtaque.innerHTML = resultadoFinal
 
-            btnAtaqueUno.disable = true
-            btnAtaqueDos.disable = true
-            btnAtaqueTres.disable = true
+            btnAtaqueUno.style.display = "none"
+            btnAtaqueDos.style.display = "none"
+            btnAtaqueTres.style.display = "none"
     }
 
     function crearFinalB (resultadoFinal) {
         parrafoAtaqueDos.innerHTML = resultadoFinal
 
-            btnAtaqueUnoB.disable = true
-            btnAtaqueDosB.disable = true
-            btnAtaqueTresB.disable = true
+            btnAtaqueUnoB.style.display = "none"
+            btnAtaqueDosB.style.display = "none"
+            btnAtaqueTresB.style.display = "none"
     }
 
     function crearFinalC (resultadoFinal) {
         parrafoAtaqueTres.innerHTML = resultadoFinal
 
-            btnAtaqueUnoC.disable = true
-            btnAtaqueDosC.disable = true
-            btnAtaqueTresC.disable = true
+            btnAtaqueUnoC.style.display = "none"
+            btnAtaqueDosC.style.display = "none"
+            btnAtaqueTresC.style.display = "none"
     }
 
     function crearFinalD (resultadoFinal) {
         parrafoAtaqueCuatro.innerHTML = resultadoFinal
 
-            btnAtaqueUnoD.disable = true
-            btnAtaqueDosD.disable = true
-            btnAtaqueTresD.disable = true
+            btnAtaqueUnoD.style.display = "none"
+            btnAtaqueDosD.style.display = "none"
+            btnAtaqueTresD.style.display = "none"
     }
 
 
