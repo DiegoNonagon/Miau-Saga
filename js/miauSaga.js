@@ -683,7 +683,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             crearMensajeEnemigoB(" Acertó el ataque")
             corazonesPersonajeDos--
-            spanCorazonesDos.innerHTML = corazonesPersonaje
+            spanCorazonesDos.innerHTML = corazonesPersonajeDos
         }
         comprobarCorazonesDos()
     }
@@ -696,7 +696,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             crearMensajeEnemigoC(" Acertó el ataque")
             corazonesPersonajeTres--
-            spanCorazonesTres.innerHTML = corazonesPersonaje
+            spanCorazonesTres.innerHTML = corazonesPersonajeTres
         }
         comprobarCorazonesTres()
     }
@@ -710,7 +710,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             crearMensajeEnemigoD(" Acertó el ataque")
             corazonesPersonajeCuatro--
-            spanCorazonesCuatro.innerHTML = corazonesPersonaje
+            spanCorazonesCuatro.innerHTML = corazonesPersonajeCuatro
         }
         comprobarCorazonesCuatro()
     }
